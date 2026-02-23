@@ -522,12 +522,12 @@
             speechAbortController = new AbortController();
             const signal = speechAbortController.signal;
             const indicator = document.getElementById('audio-indicator');
-            if (indicator) indicator.classList.remove('hidden');
 
             if (!apiKey || apiKey === "YOUR_GEMINI_API_KEY_HERE") {
                 console.warn("TTS Skipped: No API Key provided.");
                 return;
             }
+            if (indicator) indicator.classList.remove('hidden');
 
             const payload = {
                 contents: [{ parts: [{ text: `Say clearly to a child: ${text}` }] }],
